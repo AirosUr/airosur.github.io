@@ -1,0 +1,163 @@
+*{margin: 0;
+  padding: 0;
+}
+
+body{
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	font-family: sans-serif;
+}
+
+#head{
+	position: relative;
+	width: 102.5%;
+	height: 105px;
+	top: -8px;
+	left: -32px;
+	border-bottom: 1px solid #77a;
+	background:-webkit-linear-gradient(left,#999,white);
+	background:-moz-linear-gradient(left,#999,white);
+	z-index: 2;
+}
+
+#footer{
+	position: relative;
+	width: 102.5%;
+	height: 160px;
+	line-height: 24px;
+	font-size: 19px;
+	left: -32px;
+	border-top: 1px solid #77a;
+	background:-webkit-linear-gradient(left,#999,white);
+	background:-moz-linear-gradient(left,#999,white);
+}
+
+#foot2{
+	position: relative;
+	left: 150px;
+	top: 42px;
+}
+
+.pp1{
+	position: relative;
+	top: 16px;
+}
+
+#headh{
+	color: #2c2e9e;
+	position: relative;
+	font-family: cursive;
+	font-size: 24px;
+	left: 90px;
+}
+
+#svgm{
+	position: relative;
+	float: right;
+	height: 40px;
+	width: 42px;
+	top: -82px;
+	right: 28px;
+	z-index: 3;
+}
+
+#menu{
+	position: absolute;
+	display: none;
+	float: right;
+	top: 97px;
+	left: 79%;
+	border: 2px solid #CCC;
+	padding: 26px;
+	text-align: center;
+	z-index: 3;
+	background-color: rgba(240,240,240,0.72);
+	border-radius: 0 0 20px 20px;
+}
+
+#bl0{
+	position: relative;
+	height: 667px;
+	top: -8px;
+	z-index: 1;
+}
+
+#bl1{
+	position: relative;
+	top: 49px;
+	background-color: #fff;
+	white-space: pre-line;
+	padding: 54px;
+	width: 84%;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 5px 5px 4px 1px grey;
+	text-align: justify;
+}
+
+#bl2{
+	padding: 38px;
+}
+
+#bl3{
+	border: 3px outset #77a;
+	border-radius: 14px;
+	padding: 14px;
+	background-color: #eef;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.a1{
+	text-decoration: none;
+	color: #000;
+	font-size: 17px;
+}
+
+.a2{
+	padding: 13px;
+	background-color: #ccf;
+	text-decoration: none;
+	color: #000;
+	font-size: 19px;
+	border-bottom: 2px outset #77a;
+	border-radius: 0 0 10px 0;
+	border-right: 2px outset #77a;
+}
+
+hr{margin: 15px;}
+
+#mp{
+	border: 2px solid #CCC;
+	border-radius: 8px;
+	background-color: #f2f2f2;
+	color: #933;
+	padding: 3px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+#ic{
+	position: relative;
+	top: 24px;
+	left: 68px;
+}
+
+#I19{
+	border: 3px outset #CCC;
+	float: left;
+	margin-right: 14px;
+}
+
+h3{
+	font-size: 24px;
+}
+
+.asd{
+	font-size: 19px;
+	text-decoration: normal;
+}
+
+p{line-height: 25px;}

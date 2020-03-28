@@ -1,0 +1,87 @@
+*{margin: 0;
+  padding: 0;
+}
+
+body, html{
+	background-color: #F4FFF4;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;}
+
+#head{
+	position: relative;
+	width: 102.01%;
+	height: 130px;
+	background-color: #3a32fb;
+	top: -7px;
+	left: -32px;
+	border-bottom: 1px solid #000;
+	filter: drop-shadow(5px 5px 6px grey);
+}
+
+#knowlim{
+	position: relative;
+	top: 32px;
+	left: 75px;
+}
+
+#headh{
+	position: relative;
+	font-family: cursive;
+	font-size: 28px;
+	left: 96px;
+	top: 12px;
+}
+
+#aside{
+	position: relative;
+	float: right;
+	background-color: #FFF;
+	top: 100px;
+	width: 16%;
+	box-shadow: 2px 2px 4px 1px grey;
+	padding: 34px;
+	margin: 20px;
+	white-space: pre-line;
+	text-align: justify;
+	font-family: sans-serif;
+	text-align: center;
+}
+#artc{
+	position: relative;
+	width: 70%;
+	background-color: #FFF;
+	box-shadow: 2px 2px 4px 1px grey;
+	padding: 34px;
+	margin: 20px;
+	white-space: pre-line;
+	text-align: justify;
+	font-family: sans-serif;
+}
+
+#mainh{
+	text-align: center;
+	margin-bottom: 14px;
+}
+
+#mainp{
+	font-size: 15px;
+}
+
+footer {position: relative;
+	bottom: -26px;
+	background-color: #3a32fb;
+	width: 102%;
+	height: 110px;
+	left: -32px;
+	text-align: center;
+	line-height: 110px;
+	border-top: 1px solid #000;
+	filter: drop-shadow(5px -5px 6px grey);
+}
+
+.maina{
+	text-decoration: none;
+	color: black;
+}

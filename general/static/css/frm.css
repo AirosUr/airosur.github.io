@@ -1,0 +1,167 @@
+*{margin: 0;
+  padding: 0;
+}
+
+body{
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	font-family: sans-serif;
+}
+
+#head{
+	position: relative;
+	width: 102.5%;
+	height: 105px;
+	top: -8px;
+	left: -32px;
+	border-bottom: 1px solid #77a;
+	background:-webkit-linear-gradient(left,#999,white);
+	background:-moz-linear-gradient(left,#999,white);
+	z-index: 2;
+}
+
+#forummain{
+	position: relative;
+	overflow: scroll;
+	height: 700px;
+	top: -140px;
+	padding: 14px;
+	border: 3px outset #CCC;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#but{
+	border: 2px outset #CCC;
+	background-color: #E1D3D3;
+}
+
+#table{
+	line-height: 34px;
+}
+
+#headh{
+	color: #2c2e9e;
+	position: relative;
+	font-family: cursive;
+	font-size: 24px;
+	left: 90px;
+}
+
+#svgm{
+	position: relative;
+	float: right;
+	height: 40px;
+	width: 42px;
+	top: -82px;
+	right: 28px;
+	z-index: 3;
+}
+
+#svgm2{
+	position: relative;
+	border: 2px outset #CCC;
+	padding: 5px;
+	height: 24px;
+	width: 27px;
+	left: 272px;
+	top: -11px;
+	z-index: 3;
+}
+
+#td1{
+	position: relative;
+	top: -17px;
+	color: #2c2e9e;
+	font-family: sans;
+	font-size: 23px;
+}
+
+#menu{
+	position: absolute;
+	display: none;
+	float: right;
+	top: 97px;
+	left: 79%;
+	border: 2px solid #CCC;
+	padding: 26px;
+	text-align: center;
+	z-index: 3;
+	background-color: rgba(240,240,240,0.72);
+	border-radius: 0 0 20px 20px;
+}
+
+#inp{
+	display: none;
+	height: 0px;
+	position: relative;
+	top: -45px;
+	border: 1px outset #CCC;
+	padding: 16px;
+	width: 13%;
+	margin: 24px;
+	background-color: #EEE;
+	text-align: center;
+	z-index: 1;
+}
+
+#inp2{
+	display: none;
+	line-height: 20px;
+}
+
+#cv{
+	top: 45px;
+	left: 16px;
+	position: relative;
+	border: 2px outset #EBB;
+	text-align: center;
+	width: 16%;
+	background-color: #FAD1D1;
+	height: 34px;
+	line-height: 34px;
+	z-index: 2;
+}
+
+.a1{
+	text-decoration: none;
+	color: #000;
+	font-size: 17px;
+}
+
+hr{margin: 15px;}
+
+#mp{
+	border: 2px solid #CCC;
+	border-radius: 8px;
+	background-color: #f2f2f2;
+	color: #933;
+	padding: 3px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+#ic{
+	position: relative;
+	top: 24px;
+	left: 68px;
+}
+
+#cont1{
+	height: 280px;
+}
+
+h2{
+	border: 2px outset #EBB;
+	text-align: center;
+	background-color: #FAD1D1;
+	height: 34px;
+	line-height: 34px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+

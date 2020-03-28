@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+	    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="{% static 'css/j2.css' %}" type="text/css">
+		<title>Математический марафон</title>
+	</head>
+	<body style = "background-image: url({% static 'images/matemf.jpg' %});">
+		<a href = "/">Главная</a>
+		<div class = "wrapper">
+			<span id = "sec">⟲</span>
+			<span id = "rez">☺</span>
+			<img src = "{% static 'images/sec.png' %}" id = "start" onclick="return Start()"></img>
+			<canvas width = "1000px" height = "1000px" class = "canvas" id = "canvas"></canvas>
+			<span class = "zn" onclick="return Choise1()"></span>
+			<span class = "zn" onclick="return Choise2()"></span>
+			<span class = "zn" onclick="return Choise3()"></span>
+			<span class = "zn" onclick="return Choise4()"></span>
+		</div>
+		<script>
+			var canvas = document.getElementById("canvas");
+			var vars = document.getElementsByClassName("zn");
+			var sec = document.getElementById("sec");
+			var rez = document.getElementById("rez");
+			var startimg = document.getElementById("start");
+			var ctx = canvas.getContext("2d");
+			var secam = 120;
+			var a = 0;
+			var b = 0;
+			var c = 0;
+			var op = 0;
+			var sum = 0;
+			var ans = 0;
+			var answ = 0;
+			var val = 0;
+			
+			ctx.font = "40 34px serif";
+			ctx.strokeStyle = "#D5BD00";
+			ctx.strokeText("Добро пожаловать в математический марафон.", 165, 290);
+			ctx.strokeText("Суть игры - решение примеров на скорость.", 180, 345);
+			
+			//window.addEventListener("resize", Resize);
+			
+			function Start()
+			{
+				canvas.width = canvas.width;
+				secam = 120;
+				ans = true;
+				timer = setInterval(Update, 1000 / 60);
+				startimg.style.display = "none";
+				sum = 0;
+				rez.innerHTML = sum;
+				for (var x = 0; x < vars.length; x++) {
+					vars[x].style.display = "inline";
+				}
+			}
+			
+			function Update() //Обновление игры
+			{
+				sec.innerHTML = Math.floor(secam);
+				secam = secam - 1/60;
+				if (secam <= 0) {EndGame()}
+				if (ans == true) {
+					rez.innerHTML = sum;
+					canvas.width = canvas.width;
+					ctx.font = "40 86px Tahoma";
+					
+					op = Math.floor(Math.random() * 4);
+					
+					while (true) {
+						a = Math.floor(Math.random() * 100);
+						b = Math.floor(Math.random() * 100);
+						if (op == 0 || op == 1) {break;}
+						else if (op == 2) {
+							if (a / b == Math.floor(a / b) && b > 0) {break;}
+						}
+						else {
+							if (a * b < 160) {break;}
+						}
+						continue;
+					}
+					
+					if (a > 9) {ctx.fillText(a, 460, 290);}
+					else {ctx.fillText(a, 480, 290);}
+					if (b > 9) {ctx.fillText(b, 460, 410);}
+					else {ctx.fillText(b, 480, 410);}
+					
+					switch (op) {
+						case 0:
+							ctx.fillText("+", 390, 350);
+							answ = a + b;
+							break;
+						case 1:
+							ctx.fillText("-", 390, 350);
+							answ = a - b;
+							break;
+						case 2:
+							ctx.fillText("/", 390, 350);
+							answ = a / b;
+							break;
+						case 3:
+							ctx.fillText("✕", 390, 350);
+							answ = a * b;
+							break;
+					}
+					
+					ctx.beginPath();
+					ctx.moveTo(440, 440);
+					ctx.lineTo(570, 440);
+					ctx.lineWidth = 7;
+					ctx.stroke();
+					
+					vars[0].innerHTML = a + b;
+					if (vars[0].innerHTML < 10 && vars[0].innerHTML >= 0) {vars[0].style.paddingLeft = "44px"; 
+						vars[0].style.paddingRight = "44px";}
+					else if (vars[0].innerHTML < 100 || (vars[0].innerHTML < 0 && vars[0].innerHTML > -10)) {vars[0].style.paddingLeft = "32px"; 
+						vars[0].style.paddingRight = "32px";}
+					else {vars[0].style.paddingLeft = "17px"; 
+						vars[0].style.paddingRight = "17px";}
+					
+					vars[1].innerHTML = a - b;
+					if (vars[1].innerHTML < 10 && vars[1].innerHTML >= 0) {vars[1].style.paddingLeft = "44px"; 
+						vars[1].style.paddingRight = "44px";}
+					else if (vars[1].innerHTML < 100 || (vars[1].innerHTML < 0 && vars[1].innerHTML > -10)) {vars[1].style.paddingLeft = "32px"; 
+						vars[1].style.paddingRight = "32px";}
+					else {vars[1].style.paddingLeft = "17px"; 
+						vars[1].style.paddingRight = "17px";}
+						
+					vars[2].innerHTML = a * b;
+					if (vars[2].innerHTML < 10 && vars[2].innerHTML >= 0) {vars[2].style.paddingLeft = "44px"; 
+						vars[2].style.paddingRight = "44px";}
+					else if (vars[2].innerHTML < 100 || (vars[2].innerHTML < 0 && vars[2].innerHTML > -10)) {vars[2].style.paddingLeft = "32px"; 
+						vars[2].style.paddingRight = "32px";}
+					else {vars[2].style.paddingLeft = "17px"; 
+						vars[2].style.paddingRight = "17px";}
+						
+					if (b != 0) {vars[3].innerHTML = Math.floor(a / b);}
+					else {vars[3].innerHTML = Math.floor(Math.random() * 100);}
+					if (vars[3].innerHTML < 10 && vars[3].innerHTML >= 0) {vars[3].style.paddingLeft = "44px"; 
+						vars[3].style.paddingRight = "44px";}
+					else if (vars[3].innerHTML < 100 || (vars[3].innerHTML < 0 && vars[3].innerHTML > -10)) {vars[3].style.paddingLeft = "32px"; 
+						vars[3].style.paddingRight = "32px";}
+					else {vars[3].style.paddingLeft = "17px"; 
+						vars[3].style.paddingRight = "17px";}
+					
+					ans = false;}
+			}
+			
+			function Choise1()
+			{
+				if (vars[0].innerHTML == answ) {sum += 1;}
+				else {sum -= 1;}
+				ans = true;
+				Update();
+			}
+			
+			function Choise2()
+			{
+				if (vars[1].innerHTML == answ) {sum += 1;}
+				else {sum -= 1;}
+				ans = true;
+				Update();
+			}
+			
+			function Choise3()
+			{
+				if (vars[2].innerHTML == answ) {sum += 1;}
+				else {sum -= 1;}
+				ans = true;
+				Update();
+			}
+			
+			function Choise4()
+			{
+				if (vars[3].innerHTML == answ) {sum += 1;}
+				else {sum -= 1;}
+				ans = true;
+				Update();
+			}
+			
+			function Resize() 
+			{	
+				//if (innerWidth > 1600) {startimg.style.left = (32 + innerWidth / 700) + "%";}
+				//else if (innerWidth < 1600) {startimg.style.left = 32 + innerWidth / 1000 * innerWidth / 1000 * innerWidth / 1000 + "%";}
+				//else {startimg.style.left = "34%";}
+				//alert(innerWidth);
+			}
+			
+			function EndGame()
+			{
+				clearInterval(timer);
+				canvas.width = canvas.width;
+				sec.innerHTML = "⟲";
+				rez.innerHTML = "☺";
+				startimg.style.display = "inline";
+				for (var x = 0; x < vars.length; x++) {
+					vars[x].style.display = "none";
+				}
+				ctx.font = "40 34px serif";
+				ctx.strokeStyle = "#D5BD00";
+				ctx.strokeText("Ваш результат: " + sum, 363, 290);
+				if (sum >= 58) {val = 5;}
+				else if (sum >= 45) {val = 4;}
+				else if (sum >= 29) {val = 3;}
+				else {val = 2;}
+				ctx.strokeText("Ваша оценка: " + val, 382, 345);
+			}
+			
+		</script>
+	</body>
+</html>

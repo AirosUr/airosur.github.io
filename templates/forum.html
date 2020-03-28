@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+	    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="{% static 'css/frm.css' %}" type="text/css">
+		<title>Форум</title>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		<div id = "head">
+			<img id = "ic" src="{% static 'images/triangle.png' %}" />
+			<span id = "headh">Сайт-резюме программиста</span>
+		</div>
+		<svg id="svgm" onclick="return Menu()">
+			<line id="l1" x1="0" y1="10" x2="40" y2="10" stroke="#000" />
+			<line id="l2" x1="0" y1="24" x2="40" y2="24" stroke="#000" />
+			<line id="l3" x1="0" y1="38" x2="40" y2="38" stroke="#000" />
+		</svg>
+		<div id = "menu">
+			<p id = "mp">Меню</p>
+			<a class = "a1" href = "/">Главная</a>
+			<br/><hr/>
+			<a class = "a1" href = "/article1">Статья про простую нейросеть</a>
+			<br/><hr/>
+			<a class = "a1" href = "/article2">Моя статья о бизнесе</a>
+			<br/><hr/>
+			<a class = "a1" href = "/javascript2">Математический марафон</a>
+			<br/><hr/>
+			<a class = "a1" href = "/javascript1">JavascriptGame1</a>
+		</div>
+		<div id = "cont1">
+			<div id = "cv"><h3>Сделaйте запись:</h3></div><br/>
+			<svg id="svgm2" onclick="return vvod()">
+				<line x1="0" y1="4" x2="26" y2="4" stroke="#000" />
+				<line x1="0" y1="13" x2="26" y2="13" stroke="#000" />
+				<line x1="0" y1="22" x2="26" y2="22" stroke="#000" />
+			</svg>
+			<div id="inp">
+				<div id = "inp2">
+					<form method="POST" action="create/">
+						{% csrf_token %}
+						<p>
+							<label>Введите имя:</label><br/>
+							<input type="text" name="name" maxlength="11" required />
+						</p><br/>
+						<p>
+							<label>Введите свое сообщение:</label><br/>
+							<input type="text" name="message" required />
+						</p><br/>
+						<input id = "but" type="submit" value="Отправить" >
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id = "forummain">
+			<h2>Сообщения форума:</h2>
+			<br/>
+			{% if people.count > 0 %}
+			<table id = "table">
+				{% for person in people %}
+				<td id="td1">{{ person.name }}</td><br/><td>&nbsp &nbsp {{ person.message }}<hr/></td></tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+			
+		</div>
+		<script>
+			var s = 0;
+			var l1 = document.getElementById('l1');
+			var l2 = document.getElementById('l2');
+			var l3 = document.getElementById('l3');
+			var menu = document.getElementById('menu');
+			var svgm2 = document.getElementById('svgm2');
+			var inp2 = document.getElementById('inp2');
+			var inp = document.getElementById('inp');
+			var fmain = document.getElementById('forummain');
+			var al = 0;
+			var bl = 0;
+			var opc = 0;
+			var hss = 0;
+			var heivv = 0;
+			function vvod()
+			{
+				if (hss == 0) {
+					tim = setInterval(move2, 1000 / 80);
+					inp.style.display = "block";
+					hss = 1;
+					fmain.style.top = "0px";
+					svgm2.style.backgroundColor = "#FAD1D1";
+					function move2() {
+						if (heivv <= 136) {
+							heivv += 4;
+							inp.style.height = heivv + "px";
+						}
+						else {
+							clearInterval(tim);
+							inp2.style.display = "block";
+						}
+					}
+				}
+				else {
+					clearInterval(tim);
+					inp.style.height = "0px";
+					inp2.style.display = "none";
+					inp.style.display = "none";
+					heivv = 0;
+					hss = 0;
+					fmain.style.top = "-140px";
+					svgm2.style.backgroundColor = "#FFF";
+				}
+			}
+			function Menu()
+			{
+				if (s == 0) {
+					l2.style.display = "none";
+					al = 10;
+					bl = 38;
+					t = setInterval(move, 1000 / 45);
+					menu.style.display = "inline";
+					menu.style.opacity = 0;
+					function move() {
+						l1.setAttribute("y2", al);
+						l3.setAttribute("y2", bl);
+						al += 1;
+						bl -= 1;
+						opc += 0.034;
+						menu.style.opacity = opc;
+						if (al == 38 && bl == 10) {
+							clearInterval(t);
+							opc = 0;
+						}
+					}
+					s = 1;
+				}
+				else {
+					clearInterval(t);
+					l2.style.display = "inline";
+					l1.setAttribute("y2", 10);
+					l3.setAttribute("y2", 38);
+					s = 0;
+					menu.style.display = "none";
+				}
+			}
+		</script>
+	</body>
+</html>
